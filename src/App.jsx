@@ -14,29 +14,6 @@ import DeleteButton from "./components/DeleteButton/DeleteButton";
 import ConfirmationDialog from "./components/ConfirmationDialog/ConfirmationDialog";
 import Layout from "./components/Layout/Layout";
 
-<Router>
-<Layout>
-<div>
-  <h1>Blog Posts</h1>
-  <Routes>
-    <Route path="/posts" element={<PostsPage posts={posts} />} />
-    <Route
-      path="/posts/new"
-      element={<CreatePost onCreate={handleCreatePost} />}
-    />
-    <Route
-      path="/posts/:id"
-      element={<PostPage posts={posts} setPosts={setPosts} />}
-    />
-    <Route
-      path="/posts/:id/edit"
-      element={<EditPost posts={posts} onUpdate={handleUpdatePost} />}
-    />
-    <Route path="*" element={<Navigate to="/posts" replace />} />
-  </Routes>
-</div>
-</Layout>
-</Router>
 
 const initialPosts = [
   {
@@ -234,25 +211,27 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <h1>Blog Posts</h1>
-        <Routes>
-          <Route path="/posts" element={<PostsPage posts={posts} />} />
-          <Route
-            path="/posts/new"
-            element={<CreatePost onCreate={handleCreatePost} />}
-          />
-          <Route
-            path="/posts/:id"
-            element={<PostPage posts={posts} setPosts={setPosts} />}
-          />
-          <Route
-            path="/posts/:id/edit"
-            element={<EditPost posts={posts} onUpdate={handleUpdatePost} />}
-          />
-          <Route path="*" element={<Navigate to="/posts" replace />} />
-        </Routes>
-      </div>
+      <Layout>
+        <div>
+          <h1>Blog Posts</h1>
+          <Routes>
+            <Route path="/posts" element={<PostsPage posts={posts} />} />
+            <Route
+              path="/posts/new"
+              element={<CreatePost onCreate={handleCreatePost} />}
+            />
+            <Route
+              path="/posts/:id"
+              element={<PostPage posts={posts} setPosts={setPosts} />}
+            />
+            <Route
+              path="/posts/:id/edit"
+              element={<EditPost posts={posts} onUpdate={handleUpdatePost} />}
+            />
+            <Route path="*" element={<Navigate to="/posts" replace />} />
+          </Routes>
+        </div>
+      </Layout>
     </Router>
   );
 };
